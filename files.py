@@ -20,7 +20,7 @@ def getline(filename, line_number):
                     return line.strip()
         return None
     except FileNotFoundError:
-        print(f"{Fore.RED} ❌ Файл \"{filename}\" не найден. ❌ {Style.RESET}")
+        print(f"{Fore.RED} ❌ Файл \"{filename}\" не найден. ❌ {Style.RESET_ALL}")
 
 def replaceline(filename, line_number, new_line):
     """
@@ -40,7 +40,7 @@ def replaceline(filename, line_number, new_line):
         with open(filename, 'w', encoding='utf-8') as f:
             f.writelines(lines)
     else:
-        print(f"{Fore.RED} ❌ Номер строки {line_number} вне диапазона ❌ {Style.RESET}")
+        print(f"{Fore.RED} ❌ Номер строки {line_number} вне диапазона ❌ {Style.RESET_ALL}")
 
 def addline(filename, new_line):
     """
@@ -55,7 +55,7 @@ def addline(filename, new_line):
             f.write(new_line + '\n')
         print(f"Строка '{new_line}' добавлена в файл '{filename}'")
     except FileNotFoundError:
-        print(f"{Fore.RED} ❌ Файл не найден: {filename} ❌ {Style.RESET}")
+        print(f"{Fore.RED} ❌ Файл не найден: {filename} ❌ {Style.RESET_ALL}")
 
 
 def read_file(filename):
@@ -72,7 +72,7 @@ def read_file(filename):
         with open(filename, 'r', encoding='utf-8') as f:
             return f.readlines()
     except FileNotFoundError:
-        print(f"{Fore.RED} ❌ Файл не найден: {filename} ❌ {Style.RESET}")
+        print(f"{Fore.RED} ❌ Файл не найден: {filename} ❌ {Style.RESET_ALL}")
         return None
     
 
@@ -88,7 +88,7 @@ def write_lines(filename, lines):
         with open(filename, 'w', encoding='utf-8') as f:
             f.writelines(lines)
     except FileNotFoundError:
-        print(f"{Fore.RED} ❌ Файл не найден: {filename} ❌ {Style.RESET}")
+        print(f"{Fore.RED} ❌ Файл не найден: {filename} ❌ {Style.RESET_ALL}")
 
 def count_lines(filename):
     """
@@ -104,7 +104,7 @@ def count_lines(filename):
         with open(filename, 'r', encoding='utf-8') as f:
             return len(f.readlines())
     except FileNotFoundError:
-        print(f"{Fore.RED} ❌ Файл не найден: {filename} ❌ {Style.RESET}")
+        print(f"{Fore.RED} ❌ Файл не найден: {filename} ❌ {Style.RESET_ALL}")
         return 0
     
 def find_line(filename, search_string):
@@ -125,7 +125,7 @@ def find_line(filename, search_string):
                     return i + 1
         return None
     except FileNotFoundError:
-        print(f"{Fore.RED} ❌ Файл не найден: {filename} ❌ {Style.RESET}")
+        print(f"{Fore.RED} ❌ Файл не найден: {filename} ❌ {Style.RESET_ALL}")
         return None
 
 def delete_file(filename):
@@ -139,9 +139,9 @@ def delete_file(filename):
         os.remove(filename)
         print(f"Файл '{filename}' удален.")
     except FileNotFoundError:
-        print(f"{Fore.RED} ❌ Файл не найден: {filename} ❌ {Style.RESET}")
+        print(f"{Fore.RED} ❌ Файл не найден: {filename} ❌ {Style.RESET_ALL}")
     except OSError as e:
-        print(f"{Fore.RED} ❌ Ошибка при удалении файла: {e} ❌ {Style.RESET}")
+        print(f"{Fore.RED} ❌ Ошибка при удалении файла: {e} ❌ {Style.RESET_ALL}")
 
 def file_exists(filename):
     """
